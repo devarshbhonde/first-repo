@@ -1,0 +1,39 @@
+# XcodeGen spec. Run `make open` (or `xcodegen generate`) to produce ScooterScope.xcodeproj.
+# The .xcodeproj is git-ignored; this file is the source of truth.
+name: ScooterScope
+options:
+  bundleIdPrefix: com.devarshbhonde
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    # Put your Apple Team ID here (Xcode > Settings > Accounts > your Apple ID > Team ID).
+    # A free personal Apple ID works for installing on your own iPhone.
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+targets:
+  ScooterScope:
+    type: application
+    platform: iOS
+    sources:
+      - path: ScooterScope
+    info:
+      path: ScooterScope/Info.plist
+      properties:
+        CFBundleDisplayName: ScooterScope
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        NSBluetoothAlwaysUsageDescription: ScooterScope talks to your scooter over Bluetooth to log what it sends.
+        UIBackgroundModes:
+          - bluetooth-central
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.devarshbhonde.scooterscope
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
